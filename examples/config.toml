@@ -1,0 +1,7 @@
+schema = "zixcel://apple/config/v1"
+config_id = "personal-observation"
+account_ref = "account:personal"
+secret_ref = "secret://apple/icloud/personal-observer"
+environment = "production"
+services = ["calendar", "contacts", "icloud-drive"]
+
