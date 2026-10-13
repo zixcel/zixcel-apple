@@ -1,6 +1,6 @@
 # OSS source contract: zixcel/zixcel-apple
 
-Check a Apple integration configuration and produce a plan before implementing or enabling the connection.
+Owner-approved App Store Connect app read/write, scoped discovery and bounded finance reports; separate Rust planning API.
 
 ## Responsibility boundary
 

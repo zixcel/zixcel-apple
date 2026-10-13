@@ -63,3 +63,17 @@ not implemented by this release. Do not substitute planning for observed rights,
 or estimates for final provider invoices.
 
 Apache-2.0. See LICENSE and NOTICE. Source: zixcel/zixcel-apple.
+
+## Administrator discovery (new source catalog)
+
+`serviceProfile` describes the actual account scope, credential source, bounded operation list, and limits of permission/billing coverage. It contains no credentials, performs no login/request and reports `not-observed`; required permissions remain declarations. Discovery is a separate one-use reviewed read, not automatic account selection or authorization. Each cursor/page requires its own plan and grant. Source additions are not contained in the previously published package version until a new release is accepted.
+
+`apps.page-read` uses an explicit cursor (`null` for the initial page). App listing does not establish finance or key-role access.
+
+## Finance reports (new source behavior)
+
+`billing.finance-report` accepts `vendorNumber`, `regionCode` and explicit fiscal `reportDate` (`YYYY-MM`). The request fixes `reportType=FINANCIAL`; fiscal months are not converted into invented calendar invoice periods. A reviewed one-use grant retrieves at most 1 MiB of HTTP bytes, gunzip is capped at 8 MiB, and normalized output is capped at 1 MiB, 10000 rows and 64 columns. Header names must be unique and row widths consistent. Unsupported encoding/layout, truncation, oversized data and denied access fail rather than returning partial totals.
+
+The receipt retains original source digest, requested fiscal/vendor/region scope, header and raw text rows. Decimal amounts remain text for shared exact arithmetic. A TSV report is not automatically an invoice, a payment authority or a tax/FX rule; normalization must explicitly select the correct vendor fields. Token/key roles and availability still need account-specific acceptance.
+
+Primary reference: [Apple financeReports](https://developer.apple.com/documentation/appstoreconnectapi/get-v1-financereports). Tests use synthetic gzip/TSV and injected fake credentials only.

@@ -1,8 +1,9 @@
+import { gzipSync } from 'node:zlib'
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { createControl, operations } from '../dist/index.mjs'
 const account = { provider: "apple-appstoreconnect", subject: 'synthetic-owner', account: 'synthetic-account' }
-const samples = {"account.read": {}, "app.read": {"app": "123456789"}, "app.set-locale": {"app": "123456789", "locale": "ja"}}
+const samples = {"account.read":{},"app.read":{"app":"123456789"},"app.set-locale":{"app":"123456789","locale":"ja"},"apps.page-read":{"cursor":null},"billing.finance-report":{"vendorNumber":"123456789","regionCode":"US","reportDate":"2026-09"}}
 const token = 'synthetic-bearer-not-a-real-account'
 function fixture() {
   const requests = []
@@ -12,6 +13,7 @@ function fixture() {
     assert.equal(init.headers.Authorization, `Bearer ${token}`)
     requests.push({ url, method: init.method, body: init.body })
     if (status !== 200) return new Response('rejected', { status })
+    if (new URL(url).pathname === '/v1/financeReports') return new Response(gzipSync('Partner Share\tCurrency\n123.45\tUSD\n'), { headers: { 'Content-Type': 'application/a-gzip' } })
     if (init.method !== 'GET' && !url.includes('testIamPermissions')) state = JSON.parse(init.body)
     return new Response(JSON.stringify(state), { status: 200 })
   })
