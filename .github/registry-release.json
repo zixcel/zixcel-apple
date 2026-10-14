@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "repository": "zixcel/zixcel-apple",
+  "defaultBranch": "main",
+  "requiredWorkflows": [
+    "ci.yml",
+    "oss-policy.yml",
+    "provider-control.yml"
+  ],
+  "packages": [
+    {
+      "ecosystem": "npm",
+      "manifest": "packages/provider-apple/package.json",
+      "name": "@zixcel/provider-apple",
+      "installDirectory": "packages/provider-apple"
+    }
+  ]
+}
