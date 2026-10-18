@@ -1,0 +1,15 @@
+{
+  "schema": "zix-api-review/v1",
+  "source_sha256": "7518d3a94a8bd701ac25c1c601b95b8f53aad92091affb15a2a9d331713dac1a",
+  "format": "openapi",
+  "operations": [
+    {
+      "id": "apps_getInstance",
+      "binding": null
+    },
+    {
+      "id": "apps_getCollection",
+      "binding": null
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "app": "1000000001"
+  },
+  "url": "https://api.appstoreconnect.apple.com/v1/apps/1000000001",
+  "raw": {
+    "data": {
+      "id": "1000000001",
+      "type": "apps",
+      "attributes": {
+        "name": "Synthetic app",
+        "bundleId": "invalid.example.synthetic",
+        "primaryLocale": "en-US",
+        "unselected-private-field": "not selected"
+      }
+    }
+  }
+}
