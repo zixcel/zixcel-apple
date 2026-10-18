@@ -1,0 +1,19 @@
+{
+  "schema": "zix-api-source-lock/v1",
+  "upstream_url": "https://developer.apple.com/sample-code/app-store-connect/app-store-connect-openapi-specification.zip",
+  "upstream_sha256": "7518d3a94a8bd701ac25c1c601b95b8f53aad92091affb15a2a9d331713dac1a",
+  "upstream_bytes": 7524600,
+  "git_commit": null,
+  "archive_sha256": "7b826ae9ca3e45b0e7df2643cbb811c9930632640944db11a8af4586fab9db46",
+  "archive_member": "openapi.oas.json",
+  "input_format": "openapi",
+  "reference_sources": {},
+  "selected_api_ids": [
+    "apps_getCollection",
+    "apps_getInstance"
+  ],
+  "routes_sha256": "1438dbbec4ff908e4451a860957ec6343d044697a6724068fc7967cccefe6060",
+  "compiler_repository": "https://github.com/zixcel/cli",
+  "compiler_revision": "c0d0c04eaa17b55491144a52d918810baf2f53a6",
+  "redistributed_content": "interface facts only; no upstream prose, examples or schema bodies"
+}

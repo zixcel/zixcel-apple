@@ -1,0 +1,20 @@
+{
+  "operation": "apps.list",
+  "arguments": {},
+  "url": "https://api.appstoreconnect.apple.com/v1/apps?limit=20",
+  "raw": {
+    "data": [
+      {
+        "id": "1000000001",
+        "attributes": {
+          "name": "Synthetic app",
+          "bundleId": "invalid.example.synthetic",
+          "primaryLocale": "en-US"
+        }
+      }
+    ],
+    "links": {
+      "next": "https://other.example.invalid/next"
+    }
+  }
+}
