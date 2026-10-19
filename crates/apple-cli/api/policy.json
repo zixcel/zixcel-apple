@@ -1,0 +1,98 @@
+{
+  "schema": "zix-native-policy/v1",
+  "namespace": "apple",
+  "package": "zixcel-apple-cli",
+  "version": "0.1.0",
+  "credential_environment": "ZIX_APPLE_ACCESS_TOKEN",
+  "origin": "https://api.appstoreconnect.apple.com",
+  "base_path": "",
+  "routes_sha256": "1438dbbec4ff908e4451a860957ec6343d044697a6724068fc7967cccefe6060",
+  "operations": [
+    {
+      "api": "apps_getInstance",
+      "command": {
+        "id": "app.read",
+        "words": [
+          "apps",
+          "get"
+        ],
+        "effect": "read",
+        "description": "Read apple apps get.",
+        "required_permissions": [
+          "App Store Connect API key with selected app access"
+        ],
+        "arguments": [
+          {
+            "name": "app",
+            "required": true,
+            "maximum": 30
+          }
+        ]
+      },
+      "path_arguments": {
+        "id": "app"
+      },
+      "argument_rules": {
+        "app": "decimal_identifier"
+      },
+      "query": {},
+      "headers": {},
+      "identity": [
+        {
+          "pointer": "/data/id",
+          "expected": "{app}"
+        }
+      ],
+      "projection": {
+        "pointer": "/data",
+        "collection": false,
+        "fields": {
+          "id": "/id",
+          "name": "/attributes/name",
+          "bundle-id": "/attributes/bundleId",
+          "primary-locale": "/attributes/primaryLocale"
+        },
+        "required": [
+          "id"
+        ],
+        "success_pointer": null
+      }
+    },
+    {
+      "api": "apps_getCollection",
+      "command": {
+        "id": "apps.list",
+        "words": [
+          "apps",
+          "list"
+        ],
+        "effect": "read",
+        "description": "Read apple apps list.",
+        "required_permissions": [
+          "App Store Connect API key with app access"
+        ],
+        "arguments": []
+      },
+      "path_arguments": {},
+      "argument_rules": {},
+      "query": {
+        "limit": "20"
+      },
+      "headers": {},
+      "identity": [],
+      "projection": {
+        "pointer": "/data",
+        "collection": true,
+        "fields": {
+          "id": "/id",
+          "name": "/attributes/name",
+          "bundle-id": "/attributes/bundleId"
+        },
+        "required": [
+          "id"
+        ],
+        "success_pointer": null
+      }
+    }
+  ]
+}
