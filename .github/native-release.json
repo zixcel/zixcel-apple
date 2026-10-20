@@ -1,0 +1,6 @@
+{
+  "repository": "zixcel/zixcel-apple",
+  "package": "zixcel-apple-cli",
+  "tag_prefix": "native/apple/v",
+  "workflow": "native-provider.yml"
+}
