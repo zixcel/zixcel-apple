@@ -2,7 +2,7 @@
   "schema": "zix-native-policy/v1",
   "namespace": "apple",
   "package": "zixcel-apple-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "credential_environment": "ZIX_APPLE_ACCESS_TOKEN",
   "origin": "https://api.appstoreconnect.apple.com",
   "base_path": "",
