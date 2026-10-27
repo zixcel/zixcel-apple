@@ -1,0 +1,96 @@
+[
+  {
+    "operation": "app.read",
+    "selectors": {},
+    "intent": "read_selected_app_store_app",
+    "keywords": [
+      "APPLE",
+      "APPSTORE",
+      "READ"
+    ],
+    "requirements": [
+      {
+        "kind": "audience",
+        "value": "appstoreconnect-v1",
+        "subject": "apple_credential"
+      },
+      {
+        "kind": "provider_permission",
+        "value": "App Store Connect API key with selected app access",
+        "subject": "apple_credential"
+      },
+      {
+        "kind": "target_scope",
+        "value": "Selected App Store Connect issuer, API key and application visibility",
+        "subject": "operation"
+      },
+      {
+        "kind": "context",
+        "value": "Signed API JWT with valid key ID and expiry; an Apple ID login token is a different credential",
+        "subject": "operation"
+      }
+    ],
+    "next_actions": [
+      {
+        "namespace": "credential",
+        "operation": "help",
+        "purpose": "inspect_secure_credential_usage",
+        "arguments": {},
+        "on": [
+          "context",
+          "authentication"
+        ]
+      }
+    ],
+    "documentation": [
+      "https://developer.apple.com/documentation/appstoreconnectapi/generating-tokens-for-api-requests"
+    ]
+  },
+  {
+    "operation": "apps.list",
+    "selectors": {},
+    "intent": "list_visible_app_store_apps",
+    "keywords": [
+      "APPLE",
+      "APPSTORE",
+      "READ"
+    ],
+    "requirements": [
+      {
+        "kind": "audience",
+        "value": "appstoreconnect-v1",
+        "subject": "apple_credential"
+      },
+      {
+        "kind": "provider_permission",
+        "value": "App Store Connect API key with app access",
+        "subject": "apple_credential"
+      },
+      {
+        "kind": "target_scope",
+        "value": "Selected App Store Connect issuer, API key and application visibility",
+        "subject": "operation"
+      },
+      {
+        "kind": "context",
+        "value": "Signed API JWT with valid key ID and expiry; an Apple ID login token is a different credential",
+        "subject": "operation"
+      }
+    ],
+    "next_actions": [
+      {
+        "namespace": "credential",
+        "operation": "help",
+        "purpose": "inspect_secure_credential_usage",
+        "arguments": {},
+        "on": [
+          "context",
+          "authentication"
+        ]
+      }
+    ],
+    "documentation": [
+      "https://developer.apple.com/documentation/appstoreconnectapi/generating-tokens-for-api-requests"
+    ]
+  }
+]
